@@ -5,7 +5,12 @@ import { data } from "../data/data";
 // Return example: 'Planet Name'
 
 export function findPlanetNameByMoon(data, moonName) {
-  // Your code goes here...
+  for (const planet of data.planets) {
+    if (planet.moons.includes(moonName)) {
+      return planet.name;
+    }
+  }
+  return null;
 }
 
 

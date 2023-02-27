@@ -5,8 +5,25 @@ import { data } from "../data/data";
 // Return example: 1902
 
 export function getGreatestDiscoveryYear(data) {
-  // Your code goes here...
-  // feel free to import your `maxBy` or `minBy` methods from previous lessons
+  const discovered = {};
+  let maxYear = null;
+  let maxCount = 0;
+
+  for (const asteroid of data.asteroids) {
+    const year = asteroid.discoveryYear;
+    if (year in discovered) {
+      discovered[year]++;
+    } else {
+      discovered[year] = 1;
+    }
+
+    if (discovered[year] > maxCount) {
+      maxCount = discovered[year];
+      maxYear = year;
+    }
+  }
+
+  return maxYear;
 }
 
 // === TEST YOURSELF ===
