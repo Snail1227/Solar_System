@@ -6,15 +6,9 @@ import { data } from "../data/data";
 // Return example: ['name1', 'name2', ... , 'nameN']
 
 export function lowMoonsPlanets(data) {
-  const lowMoons = [];
-  data.planets.forEach(planet => {
-    if (planet.moonsCount < 10) {
-      lowMoons.push(planet.name);
-    } if (!planet.moonsCount) {
-      lowMoons.push(planet.name);
-    }
-  });
-  return lowMoons;
+  return data.planets
+  .filter((planet) => planet.moonsCount < 10 || !planet.moonsCount)
+  .map((planet) => planet.name);
 }
 
 // === TEST YOURSELF ===
